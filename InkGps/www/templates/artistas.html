@@ -1,0 +1,100 @@
+<ion-view  view-title="{{'buscarArtistas' | translate}}">
+
+      <ion-content  on-scroll="getScrollPosition()">   
+
+     <!--   <div class="list">
+           <a data-ng-repeat="artista in artistas" class="item item-thumbnail-left"  ng-click="cargarSeleccionado($index)" >
+
+             <img src="{{artista.imagen}}">
+             <h2>{{artista.nombre}}</h2>
+             <p>{{artista.especialidad}}</p>
+             <p>{{artista.ciudad}}</p>
+          </a>
+        </div>-->
+        <!--  <ion-refresher
+            on-refresh="filtrar()"
+            pulling-text="Pull to refresh..."
+            refreshing-text="Refreshing!"
+            refreshing-icon="ion-loading-c">
+        </ion-refresher>-->
+    
+        <a class="btn red button button-full button-assertive " ng-click="openFiltro()">
+             <i class="icon ion-funnel icono"></i>
+                {{"filtrar" | translate}} 
+        </a>
+        <div ng-show="filtro.iniciaFiltro">
+          <div class="item item-image">
+           <img src="./img/filtrar_ayuda.jpg">
+          </div>
+        </div>
+        <div ng-show="filtro.cargando">
+        <center>
+             <img  width="48px" height="48px" src="./img/712.GIF">
+        </center>
+             
+        </div>
+        <div ng-show="filtro.resultadoEnFiltro">
+             <li class="item item-toggle">
+             {{"mostrarResultado" | translate}} 
+               <label class="toggle toggle-assertive">
+                  <input ng-model="filtro.analisis" type="checkbox">
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+            </li>
+          <div ng-show="filtro.analisis">
+                <div class="item item-text-wrap justificar">
+               {{"resultadoAnalisisTexto" | translate}}  {{filtro.ancho}} x {{filtro.alto}} cm :
+
+                </div>
+                <a class="item item-avatar" href="#"  >
+                  <img  width="48px" height="48px" src="./img/tiempo.png">
+                  <h2>  {{"tiempoPorSesion" | translate}}{{filtro.tiempoTotalTatuaje}}</h2>  
+                </a>
+                <a class="item item-avatar" href="#" >
+                  <img  width="48px" height="48px" src="./img/sesiones.png">
+                     {{"cantidadSesiones" | translate}} {{filtro.cantidadSesiones}}
+                </a> 
+                <a class="item item-avatar" href="#" >
+                    <img  width="48px" height="48px" src="./img/intensidad.png">
+                    {{"intensidadDolor" | translate}} {{filtro.intensidadDeDolor}}
+                </a>
+                 <a class="item item-avatar" href="#" >
+                    <img  width="48px" height="48px" src="./img/zona.png">
+                    {{"ubicacion" | translate}} {{filtro.zona}}
+                </a>
+                 <a class="item item-avatar" href="#" >
+                    <img  width="48px" height="48px" src="./img/especialidadF.png">
+                    {{"especialidad" | translate}} {{filtro.estilo}}
+                </a>
+        </div>
+        </div>
+
+        <div cache-view="false" class="list card fondo"  ng-click="cargarSeleccionado($index)" data-ng-repeat="artista in artistas" ng-click="cargarSeleccionado($index)"  >
+
+  <div class="item item-avatar fondo">
+    <img src="{{artista.imagen}}">
+    <h2>{{artista.nombre}} <i ng-show="{{artista.verificado}}" class="icon ion-checkmark-circled"></i></h2>
+    <p>{{artista.ciudad}}</p>
+     
+
+  </div>
+
+  <div class="item item-image" fondo>
+    <img src="{{artista.trabajos[0]}}">
+  </div>
+
+  <a class="item item-icon-left assertive fondo" href="#">
+    <i class="icon ion-hammer"></i>
+    {{artista.especialidad}}
+  </a>
+
+</div>
+      </ion-content>
+<div  ng-show="mostrarScroll">
+
+ <div  class="scrollToTop" ng-click="scrollTop()"></div>
+ </div>
+</ion-view>
+

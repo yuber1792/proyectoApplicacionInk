@@ -1,0 +1,27 @@
+<ion-view view-title="{{'bocetos' | translate}}">
+  <ion-content>
+
+  <div ng-repeat="boceto in bocetos" class="list card " ng-click="cargarSeleccionadoBoceto({{boceto.id}})">
+  <div class="item item-divider fondoRojo">
+   {{"codigoArtista" | translate}} {{boceto.id}}
+    </div>
+  <!--<div class="item item-avatar fondo">
+    <img src="{{boceto.imagen}}">
+    <h2>{{boceto.nombre}}</h2>
+    <p>{{boceto.fecha}}</p>
+  </div>-->
+
+  <div class="item item-image">
+    <img src="{{boceto.imagen}}">
+  </div>
+
+  <div class="item item-body justificar fondo">
+    
+   
+  </div>
+
+
+</div>
+
+  </ion-content>
+</ion-view>
